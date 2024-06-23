@@ -80,5 +80,5 @@ pub type Classes {
 type RequestID =
   Nil
 
-@external(javascript, "./window_ffi.mjs", "requestAnimationFrame")
+@external(javascript, "./ffi.mjs", "requestAnimationFrame")
 fn request_animation_frame(callback: fn(Float) -> Nil) -> RequestID
