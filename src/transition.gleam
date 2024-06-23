@@ -1,6 +1,7 @@
 import gleam/option.{type Option, None, Some}
 import lustre/effect.{type Effect}
 
+/// Move the state on from Init, e.g. EnterInit -> Enter, LeaveInit -> Leave
 pub fn next(state: Option(State)) -> State {
   case state {
     None -> Left
@@ -13,6 +14,7 @@ pub fn next(state: Option(State)) -> State {
   }
 }
 
+/// Toggle the state from any Leave state to EnterInit, or any Enter state to LeaveInit
 pub fn toggle(state: Option(State)) -> State {
   case state {
     None -> Left
@@ -24,6 +26,7 @@ pub fn toggle(state: Option(State)) -> State {
   }
 }
 
+/// 
 pub fn start(msg: a) -> Effect(a) {
   use dispatch <- effect.from
   use _ts <- request_animation_frame
