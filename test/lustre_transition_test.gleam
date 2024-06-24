@@ -26,18 +26,18 @@ pub fn next_test() {
   |> transition.next
   |> should.equal(transition.Leave)
 
-  Some(transition.Left)
+  Some(transition.Init)
   |> transition.next
-  |> should.equal(transition.Left)
+  |> should.equal(transition.Init)
 
   None
   |> transition.next
-  |> should.equal(transition.Left)
+  |> should.equal(transition.Init)
 }
 
 // Toggle will Switch form any leaving state to EnterInit or any entering state to LeaveInit
 pub fn toggle_test() {
-  Some(transition.Left)
+  Some(transition.Init)
   |> transition.toggle
   |> should.equal(transition.EnterInit)
 
@@ -67,18 +67,18 @@ pub fn apply_test() {
       "fff",
     ))
 
-  classes |> transition.apply(transition.Left) |> should.equal("hidden")
+  classes |> transition.apply(transition.Init) |> should.equal("hidden")
   classes |> transition.apply(transition.LeaveInit) |> should.equal("ddd eee")
   classes |> transition.apply(transition.Leave) |> should.equal("ddd fff")
   classes |> transition.apply(transition.EnterInit) |> should.equal("aaa bbb")
   classes |> transition.apply(transition.Enter) |> should.equal("aaa ccc")
 }
 
-// End will switch the the left state from leave only
+// End will switch the the Init state from leave only
 pub fn end_test() {
   Some(transition.Leave)
   |> transition.end
-  |> should.equal(transition.Left)
+  |> should.equal(transition.Init)
 
   Some(transition.EnterInit)
   |> transition.end
@@ -92,12 +92,12 @@ pub fn end_test() {
   |> transition.end
   |> should.equal(transition.LeaveInit)
 
-  Some(transition.Left)
+  Some(transition.Init)
   |> transition.end
-  |> should.equal(transition.Left)
+  |> should.equal(transition.Init)
 
   None
   |> transition.end
-  |> should.equal(transition.Left)
+  |> should.equal(transition.Init)
 }
 // not sure how to test the start function, it should return an effect that will trigger on request_animation_frame
