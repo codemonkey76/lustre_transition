@@ -1,5 +1,5 @@
 name = "lustre_transition"
-version = "0.1.0"
+version = "0.2.0"
 description = "Transitions for lustre, designed for use with Tailwind"
 target = "javascript"
 licenses = ["MIT"]
