@@ -81,7 +81,7 @@ pub opaque type Msg {
 }
 
 fn init(_flags) -> #(Model, Effect(Msg)) {
-  #(Model(transition.Left), effect.none())
+  #(Model(transition.Init), effect.none())
 }
 
 fn update(model: Model, msg: Msg) -> #(Model, Effect(Msg)) {
