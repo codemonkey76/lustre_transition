@@ -46,12 +46,13 @@ gleam run -m lustre/dev add tailwind
 Start a development server for your Lustre project. This
 command will compile your application and serve it on a local server.
 
-```sh 
+```sh
 gleam run -m lustre/dev start
 ```
 
-## Example 
+## Example
 
+<img src="https://github.com/codemonkey76/lustre_transition/blob/main/screenshots/example.gif?raw=true">
 
 ```gleam
 import gleam/dynamic
